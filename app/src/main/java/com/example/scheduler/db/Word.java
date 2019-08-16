@@ -7,7 +7,7 @@ import androidx.room.PrimaryKey;
 
 /**
  * Created by Olije Favour on 8/15/2019.
- * Copyright (c) 2019  Itex Integrated Services  All rights reserved.
+ * Copyright (c) 2019.
  */
 
 @Entity(tableName = "word_table")
