@@ -1,5 +1,6 @@
 package com.example.scheduler.db;
 
+import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Insert;
 import androidx.room.Query;
@@ -18,9 +19,9 @@ public interface WordDao {
     void insert(Word word );
 
     @Query("SELECT * FROM word_table")
-    List<Word> getAllWord();
+    LiveData<List<Word> >getAllWord();
 
     @Query("DELETE FROM word_table")
-    List<Word> deleteAllWords();
+    void  deleteAllWords();
 
 }
