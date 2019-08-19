@@ -34,6 +34,9 @@ dependencies {
     annotationProcessor "androidx.room:room-compiler:$rootProject.roomVersion"
     androidTestImplementation "androidx.room:room-testing:$rootProject.roomVersion"
 
+    //Recyclerview
+    implementation 'androidx.recyclerview:recyclerview:1.1.0-beta03'
+
     // Room components  with dependency implemented with  def
 //    implementation "androidx.room:room-runtime:$roomVersion"
 //    annotationProcessor "androidx.room:room-compiler:$roomVersion"
