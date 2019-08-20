@@ -1,4 +1,4 @@
-package com.example.scheduler.Homepage;
+package com.example.scheduler.Homepage.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -26,7 +26,7 @@ public class WordAdapter extends RecyclerView.Adapter<WordAdapter.WordViewHolder
   private LayoutInflater mLayoutInflater;
     private List<Word> mWord;
 
-    private WordAdapter(Context context ){
+     public WordAdapter(Context context){
 
       mLayoutInflater = LayoutInflater.from(context);
   }
