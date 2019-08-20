@@ -43,12 +43,24 @@ public class WordAdapter extends RecyclerView.Adapter<WordAdapter.WordViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull WordViewHolder holder, int position) {
-      if
+        String word="Nothing to Show";
+
+        if(mWord !=null){
+            word=mWord.get(position).getWord();
+        }
+
+        holder.wordView.setText(word);
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        int itemSize =0;
+
+        if(mWord != null){
+            itemSize=mWord.size();
+        }
+
+        return itemSize;
     }
 
 
@@ -58,9 +70,10 @@ public class WordAdapter extends RecyclerView.Adapter<WordAdapter.WordViewHolder
     }
 
     class WordViewHolder extends RecyclerView.ViewHolder {
+        TextView wordView;
         public WordViewHolder(@NonNull View itemView) {
             super(itemView);
-            TextView word = itemView.findViewById(R.id.word_textView);
+            wordView = itemView.findViewById(R.id.word_textView);
         }
     }
 }
