@@ -33,6 +33,7 @@ public class WordViewModel extends AndroidViewModel {
 
 
     public LiveData<List<Word>> getAllWords() {
+
         return mAllWords;
     }
 
