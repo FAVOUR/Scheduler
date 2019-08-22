@@ -11,6 +11,7 @@ import com.example.scheduler.db.WordDB;
 import com.example.scheduler.db.WordDao;
 import com.example.scheduler.schedule.Activity.ScheduleActivity;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.snackbar.Snackbar;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -22,10 +23,11 @@ import androidx.room.RoomDatabase;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
 import android.view.View;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-    static final int ADDDATA=90908;
+    static final int ADDDATA=123;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
 
                 Intent intent = new Intent(MainActivity.this, ScheduleActivity.class);
                              startActivityForResult(intent,ADDDATA);
-                             finish();
+//                             finish();
 //                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
 //                        .setAction("Action", null).show();
             }
@@ -62,7 +64,13 @@ public class MainActivity extends AppCompatActivity {
 
         if(resultCode == RESULT_OK && requestCode == ADDDATA ){
 
+            String reply= data.getStringExtra(ScheduleActivity.WORD);
+            Toast.makeText(this, reply , Toast.LENGTH_SHORT).show();
 
+
+        }else {
+
+            Toast.makeText(this,"No data Was Entered",Toast.LENGTH_SHORT).show();
         }
     }
 
