@@ -10,6 +10,7 @@ import com.example.scheduler.db.Word;
 import com.example.scheduler.db.WordDB;
 import com.example.scheduler.db.WordDao;
 import com.example.scheduler.schedule.Activity.ScheduleActivity;
+import com.example.scheduler.schedule.viewmodel.WordViewModel;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -17,6 +18,9 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.lifecycle.LifecycleOwner;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.room.RoomDatabase;
@@ -25,9 +29,14 @@ import androidx.sqlite.db.SupportSQLiteDatabase;
 import android.view.View;
 import android.widget.Toast;
 
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity {
 
     static final int ADDDATA=123;
+
+    private WordViewModel mWordViewModel;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,10 +46,22 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
          RecyclerView mRecyclerView= findViewById(R.id.recyclerview);
-         WordAdapter mWordAdapter = new WordAdapter(this);
+         final WordAdapter mWordAdapter = new WordAdapter(this);
          mRecyclerView.setAdapter(mWordAdapter);
          mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
+
+
+        mWordViewModel= ViewModelProviders.of(this).get(WordViewModel.class);
+
+        mWordViewModel.getAllWords().observe((LifecycleOwner) this, new Observer<List<Word>>() {
+            @Override
+            public void onChanged(List<Word> words) {
+
+                mWordAdapter.setWords(words);
+
+            }
+        });
 
 
 

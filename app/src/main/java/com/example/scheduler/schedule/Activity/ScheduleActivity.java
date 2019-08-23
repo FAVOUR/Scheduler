@@ -1,6 +1,10 @@
 package com.example.scheduler.schedule.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.LifecycleOwner;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.lifecycle.ViewModelProviders;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,11 +13,18 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.scheduler.R;
+import com.example.scheduler.db.Word;
+import com.example.scheduler.schedule.viewmodel.WordViewModel;
+
+import java.util.List;
 
 public class ScheduleActivity extends AppCompatActivity {
     TextView wordText;
     Button submitBtn;
-    public final static String WORD="word_entered";
+    public final static String WORD = "word_entered";
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,6 +33,7 @@ public class ScheduleActivity extends AppCompatActivity {
 
           wordText=findViewById(R.id.wordText);
           submitBtn=findViewById(R.id.add_word);
+
 
 
         submitBtn.setOnClickListener(new View.OnClickListener() {
