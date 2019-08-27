@@ -46,7 +46,7 @@ public class ScheduleActivity extends AppCompatActivity {
                     setResult(RESULT_CANCELED, resultIntent);
                 } else {
                     resultIntent.putExtra(WORD, wordEntered);
-                    setResult(RESULT_CANCELED, resultIntent);
+                    setResult(RESULT_OK, resultIntent);
 
                 }
                //Helps end this activity and give room to the calling activity

@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
 
         mWordViewModel= ViewModelProviders.of(this).get(WordViewModel.class);
 
-        mWordViewModel.getAllWords().observe((LifecycleOwner) this, new Observer<List<Word>>() {
+        mWordViewModel.getAllWords().observe(this, new Observer<List<Word>>() {
             @Override
             public void onChanged(List<Word> words) {
 
