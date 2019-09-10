@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-         RecyclerView mRecyclerView= findViewById(R.id.recyclerview);
+        RecyclerView mRecyclerView= findViewById(R.id.recyclerview);
          final WordAdapter mWordAdapter = new WordAdapter(this);
          mRecyclerView.setAdapter(mWordAdapter);
          mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -87,6 +87,10 @@ public class MainActivity extends AppCompatActivity {
 
             String reply= data.getStringExtra(ScheduleActivity.WORD);
             Toast.makeText(this, reply , Toast.LENGTH_SHORT).show();
+
+             Word word = new Word(reply);
+
+            mWordViewModel.addword(word);
 
 
         }else {

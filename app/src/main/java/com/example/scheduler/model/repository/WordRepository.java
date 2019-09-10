@@ -30,7 +30,7 @@ public class WordRepository {
     }
 
     public void insert(Word word ){
-        new WordAsyncTask(wordDoa).doInBackground(word);
+        new WordAsyncTask(wordDoa).execute(word);
     }
 
 
