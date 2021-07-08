@@ -18,11 +18,11 @@ import java.util.List;
  */
 
 
-public class WordRepositoty {
+public class WordRepository {
   private  WordDao wordDoa;
   private LiveData<List<Word>> allNotes;
 
-    WordRepositoty(Application application){
+    public WordRepository(Application application){
 
         WordDB wordDB=  WordDB.getDatabase(application);
         wordDoa = wordDB.getWordDoa();
@@ -30,7 +30,7 @@ public class WordRepositoty {
     }
 
     public void insert(Word word ){
-        new WordAsyncTask(wordDoa).doInBackground(word);
+        new WordAsyncTask(wordDoa).execute(word);
     }
 
 

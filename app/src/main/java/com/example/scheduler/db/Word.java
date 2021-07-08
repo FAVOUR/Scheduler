@@ -21,13 +21,13 @@ public class Word {
 
 
 //    like so....
-      @PrimaryKey
+      @PrimaryKey(autoGenerate = true)
       @NonNull
      private int id;
       @ColumnInfo(name = "word")
      private  String mWord;
 
-    public Word(int id ,String word){
+    public Word(String word){
 
         this.id=id;
         mWord=word;
@@ -35,6 +35,10 @@ public class Word {
 
     public int getId() {
         return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getWord() {
